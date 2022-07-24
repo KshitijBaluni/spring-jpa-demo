@@ -8,15 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
 
-@Data
-@Builder
-@Entity
 /**
- * Post Data Persistence Object.
+ * Post Persistence Object.
  *
  * @author kshitijbaluni
  * @since 24 July 2022
  */
+@Data
+@Builder
+@Entity
 public class Post {
   @Id
   @GeneratedValue
