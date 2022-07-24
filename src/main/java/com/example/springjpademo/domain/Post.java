@@ -1,5 +1,6 @@
 package com.example.springjpademo.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,6 +27,7 @@ public class Post {
   private Long id;
   private String title;
   private String body;
+  @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
   private Date postedOn;
 
   @ManyToOne
