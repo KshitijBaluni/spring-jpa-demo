@@ -4,14 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import java.util.Date;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 /**
- * Post Persistence Object.
+ * Author Persistence Object.
  *
  * @author kshitijbaluni
  * @since 24 July 2022
@@ -20,17 +21,17 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @Entity
-public class Post {
+public class Author {
   @Id
   @GeneratedValue
   private Long id;
-  private String title;
-  private String body;
-  private Date postedOn;
+  private String firstName;
+  private String lastName;
 
-  @ManyToOne
-  private Author author;
+  @OneToMany
+  private List<Post> postList;
 
-  public Post() {
+  public Author() {
+
   }
 }
