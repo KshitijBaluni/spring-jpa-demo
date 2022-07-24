@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,8 +28,12 @@ public class Post {
   @GeneratedValue
   private Long id;
   private String title;
+  @Column(columnDefinition = "TEXT")
   private String body;
-  @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+  @Column(columnDefinition = "TEXT")
+  private String teaser;
+  private String slug;
+  @CreatedDate @Column(columnDefinition = "TIMESTAMP")
   private Date postedOn;
 
   @ManyToOne

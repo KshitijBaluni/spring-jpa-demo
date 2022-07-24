@@ -27,6 +27,7 @@ public class Author {
   private Long id;
   private String firstName;
   private String lastName;
+  private String email;
 
   @OneToMany
   private List<Post> postList;

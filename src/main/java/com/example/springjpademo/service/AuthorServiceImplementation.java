@@ -32,10 +32,9 @@ public class AuthorServiceImplementation implements AuthorService {
   }
 
   @Override
-  public void updateAuthor(String firstName, String lastName, Long id) {
+  public void updateAuthor(String firstName, Long id) {
     Author author = authorRepository.findById(id).get();
     author.setFirstName(firstName);
-    author.setLastName(lastName);
     authorRepository.save(author);
   }
 

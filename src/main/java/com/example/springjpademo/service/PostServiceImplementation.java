@@ -5,6 +5,7 @@ import com.example.springjpademo.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -41,5 +42,20 @@ public class PostServiceImplementation implements PostService {
   @Override
   public void deletePost(Long id) {
     postRepository.deleteById(id);
+  }
+
+  @Override
+  public Post getLatestPost() {
+    return postRepository.findFirstByOrderByPostedOnDesc();
+  }
+
+  @Override
+  public List<Post> list() {
+    return postRepository.findAllByOrderByPostedOnDesc();
+  }
+
+  @Override
+  public Post getBySlug(String slug) {
+    return postRepository.findBySlug(slug);
   }
 }

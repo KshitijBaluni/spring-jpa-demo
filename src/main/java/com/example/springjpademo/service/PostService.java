@@ -2,6 +2,7 @@ package com.example.springjpademo.service;
 
 import com.example.springjpademo.domain.Post;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface PostService {
@@ -14,4 +15,10 @@ public interface PostService {
   void updatePost(String title, Long id);
 
   void deletePost(Long id);
+
+  Post getLatestPost();
+
+  List<Post> list();
+
+  Post getBySlug(String slug);
 }

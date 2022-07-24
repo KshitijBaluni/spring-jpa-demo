@@ -1,7 +1,6 @@
 package com.example.springjpademo.controller;
 
 import com.example.springjpademo.domain.Author;
-import com.example.springjpademo.service.AuthorService;
 import com.example.springjpademo.service.AuthorServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,9 +37,9 @@ public class AuthorController {
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-  public void updateAuthor(@RequestBody(required = true) String firstName, @RequestBody String lastName,
+  public void updateAuthor(@RequestBody(required = true) String firstName,
                            @PathVariable(value = "id") Long id) {
-    authorService.updateAuthor(firstName, lastName, id);
+    authorService.updateAuthor(firstName, id);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
