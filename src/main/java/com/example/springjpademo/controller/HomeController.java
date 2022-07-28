@@ -6,6 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * Home Controller.
+ *
+ * @author kshitijbaluni
+ * @since 24 July 2022
+ */
 @Controller
 public class HomeController {
   private PostService postService;

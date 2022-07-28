@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
+/**
+ * Author Rest Controller.
+ *
+ * @author kshitijbaluni
+ * @since 24 July 2022
+ */
 @RestController
 @RequestMapping(value = "/author")
 public class AuthorController {

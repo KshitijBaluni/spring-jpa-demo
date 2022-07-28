@@ -7,6 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * Post Page Controller.
+ *
+ * @author kshitijbaluni
+ * @since 24 July 2022
+ */
 @Controller
 @RequestMapping(value = "/posts")
 public class PostPageController {

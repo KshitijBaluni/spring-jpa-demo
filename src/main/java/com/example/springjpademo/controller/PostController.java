@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
+/**
+ * Post Rest Controller.
+ *
+ * @author shitijbaluni
+ * @since 24 July 2022
+ */
 @RestController
 @RequestMapping(value = "/post")
 public class PostController {
