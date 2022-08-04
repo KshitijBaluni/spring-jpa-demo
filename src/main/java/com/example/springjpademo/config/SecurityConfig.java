@@ -1,5 +1,6 @@
 package com.example.springjpademo.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -10,18 +11,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-  @Override
-  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+  @Autowired
+  public void configureAuth(AuthenticationManagerBuilder auth) throws Exception{
+    PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
     auth
       .inMemoryAuthentication()
-      .withUser("Rishi")
-      .password("password")
+      .withUser("dan")
+      .password(encoder.encode("password"))
       .roles("ADMIN")
-    .and()
-      .withUser("Dan")
-      .password("password")
+      .and()
+      .withUser("joe")
+      .password(encoder.encode("password"))
       .roles("USER");
 
-    PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
   }
 }
