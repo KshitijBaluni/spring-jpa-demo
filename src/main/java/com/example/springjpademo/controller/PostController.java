@@ -3,6 +3,7 @@ package com.example.springjpademo.controller;
 import com.example.springjpademo.domain.Post;
 import com.example.springjpademo.service.PostServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import java.util.Optional;
 /**
  * Post Rest Controller.
  *
- * @author shitijbaluni
+ * @author kshitijbaluni
  * @since 24 July 2022
  */
 @RestController
@@ -27,6 +28,7 @@ public class PostController {
     this.postServiceImplementation = postServiceImplementation;
   }
 
+  @Secured(value = "ROLE_USER")
   @RequestMapping(value = "/", method = RequestMethod.GET)
   public Iterable<Post> getPosts() {
     return postServiceImplementation.getPosts();
